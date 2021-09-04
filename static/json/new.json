@@ -1,0 +1,43 @@
+[
+    {
+        "url":"../static/image/planet_icon/jupiter.png",
+        "r":0.9,
+        "size":0.7,
+        "angle":10,
+        "angle_planet":0,
+        "agl":0.9,
+        "agl_pl":10,
+        "color":"#f5a684"
+    },
+    {
+        "url":"../static/image/planet_icon/earth.png",
+        "r":0.4,
+        "size":0.5,
+        "angle":0,
+        "angle_planet":0,
+        "agl":0.8,
+        "agl_pl":10,
+        "color":"#35f0e9"
+    },
+    {
+        "url":"../static/image/planet_icon/sun.png",
+        "r":0,
+        "size":1,
+        "angle":0,
+        "angle_planet":0,
+        "agl":0,
+        "agl_pl":1,
+        "color":"#54f7ec"
+    },
+    {
+        "url":"/static/image/planet_icon/mars.png",
+        "r":0.65,
+        "size":0.55,
+        "angle":0,
+        "angle_planet":0,
+        "agl":0.4,
+        "agl_pl":8,
+        "color":"#cc1b82"
+    }
+
+]

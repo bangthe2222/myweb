@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- css/ bootrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- my css -->
+    <link rel="stylesheet" href="{% static './css/style_pose.css'%}">
+    <!-- favicon link -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon_io/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon_io/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon_io/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon_io/site.webmanifest' %}">
+    <title>Pose Detection</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <!-- Require the peer dependencies of pose-detection. -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
+
+    <!-- You must explicitly require a TF.js backend if you're not using the TF.js union bundle. -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-wasm/dist/tf-backend-wasm.js"></script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection"></script> 
+
+    <!-- flex/error part -->
+    <div id="count_container">
+        <h1 id="count"></h1>
+    </div>
+    
+
+    <!-- select menu -->
+    <div id="side_bar" onmouseleave="close_side_bar()">
+        <button class="close-btn" style="cursor: pointer;">
+            <i class="closebtn" onclick="close_side_bar()">&times;</i>
+        </button>
+        <div class="select">
+            <nav>Select Excercise</nav>
+            <li value="0">Dumbbell/Hammer Curls</li>
+            <li value="1">Squat</li>
+            <li value="2">Barbell Curl</li>
+        </div>
+    </div>
+    <!-- main part -->
+    <div class="container-fluid" style="height: 100%;">
+        <div class="row" id="title_container">
+            <span style="font-size:35px;width: 50px;height: 50px;color: oldlace; margin-left: 1%; position:absolute;" onmouseover="open_side_bar()">&#9776;</span>
+            <h1 id="title_h1">POSE DETECTION</h1>
+        </div>
+        <div class="row" id="main_container">
+            <div class="col-sm-2">
+                <div id="side_part">
+                    <center>
+                        <!-- input -->
+                        <h2>Select your score</h2>
+                        <input type="number" name="number" id="input" min="100" max="10000" size="8">
+                        <input type="submit" value="submit" id="button_input" onclick="getScore()">   
+                        <!-- main -->
+                        <!-- HP -->
+                        <h1 id="HP">Total Score: 0</h1>
+                        <!-- score -->
+                        <h2 id="score"></h2>
+                        <h2 id="scoreL"></h2>
+                        <h2 id="scoreR"></h2>
+                    </center>
+                </div>
+
+            </div>
+        
+            <div class="col-sm-10" id="canvas_frame">
+                <video id="video" autoplay style="display: none;" ></video>
+
+                <center><h2 id="name_excercise" onclick="open_side_bar()">Select Excercise</h2></center>
+                <canvas id="canvas"></canvas>
+                <center>
+                    <button id="run">run</button>
+                    <button id="end">end</button>
+                    <button id="start">start</button>
+                </center>
+        
+            </div>
+        </div>
+    </div>
+
+
+<script src="{% static './js/pose_DT.js'%}"></script>
+<script>
+</script>
+</body>
+</html>

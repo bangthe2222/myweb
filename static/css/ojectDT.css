@@ -1,0 +1,74 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+body{
+    background-image: url(../image/obj_DT_image/bgOBJDT.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    background-position: center;
+}
+.container-canvas{
+   width: 100%; 
+   margin-top: 5%;
+   
+}
+#canvas{
+    margin-left: auto;
+    margin-right: auto;
+    display:flex;
+    border-radius: 10px;
+
+    background-image: linear-gradient(to right, rgb(0, 38, 255) , rgb(102, 255, 0));
+    opacity: 0.5;
+}
+#outer
+{
+    margin-top: 5px;
+    width:100%;
+    text-align: center;
+}
+.inner
+{
+    display: inline-block;
+}
+
+.button{
+    background-color: mediumturquoise;
+    font-size: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border: none;
+    border-radius: 7px;
+    width: 65px;
+    padding: 2px;
+}
+button:hover{
+    background-color: #167979;
+    -webkit-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 500ms linear;
+}
+button:active{
+    background-color: salmon;
+}
+#header{
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* font-size:3vh; */
+    padding: 0px;
+    margin: 0px;
+    /* height:10vh; */
+    background-image: url(../image/obj_DT_image/headerOBJDT.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    background-position: center;
+}

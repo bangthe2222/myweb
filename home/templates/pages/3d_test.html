@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- favicon link -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon_io/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon_io/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon_io/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon_io/site.webmanifest' %}">
+    <title>3D TEST</title>
+	<style>
+		body{
+			margin: 0;
+		}
+		canvas{
+			height: 100%;
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+<script src="{% static 'js/three.js' %}"></script>
+<canvas id="1"></canvas>
+<script>
+	function Load(){
+		var canvas= document.getElementById("1")
+    	var scene = new THREE.Scene();
+		var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+
+		var renderer = new THREE.WebGLRenderer({canvas});
+		renderer.setSize(window.innerWidth, window.innerHeight-5);
+		document.body.appendChild(renderer.domElement);
+		// create the shape
+		var geometry = new THREE.SphereGeometry(1, 15, 8); // size of box
+
+		//create material, color or image
+		var material = new THREE.MeshBasicMaterial( {color: 0xffffff, wireframe: true} ); //wireframe false will not show wireframe
+		var sphere = new THREE.Mesh(geometry, material);
+		scene.add(sphere);
+		camera.position.z = 2;
+		//game login
+		var update = function() {
+      // Just for fun
+			sphere.rotation.x += 0.01;
+			sphere.rotation.y += 0.01;
+			sphere.rotation.z += 0.01;
+		};
+
+		// draw scene
+		var render = function() {
+			renderer.render(scene, camera);
+		};
+
+		//run gameloop (update, render, repeat)
+		var GameLoop = function() {
+			requestAnimationFrame(GameLoop);
+			update();
+			render();
+		};
+
+		GameLoop();
+		// Just for fun
+		scene.background = new THREE.Color( 'skyblue' );
+	}
+	Load()
+</script>
+</body>
+</html>
