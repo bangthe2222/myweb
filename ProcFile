@@ -1,1 +1,2 @@
 web:gunicorn bangthe2222myweb.wsgi
+heroku ps:scale web=1
